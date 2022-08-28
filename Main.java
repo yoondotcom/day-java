@@ -1,12 +1,12 @@
-import java.util.Scanner;
-
 class Main{
   public static void main(String[] args){
-    String name;
-
-    Scanner sc = new Scanner(System.in);
-    name = sc.next();
-
-    System.out.println("Hello " + name);
+    try {
+      for (int i = 0; i < args.length; i++) {
+        System.out.println(args[i]);
+      }
+    } catch (IndexOutOfBoundsException e) {
+      System.out.println(e);
+    }
   }
 }
+
