@@ -14,55 +14,61 @@ class Calculator{
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter first number");
+        while(true){
+            String value = sc.nextLine();
 
-        list.add(Integer.parseInt(sc.nextLine()));
-
-        System.out.println("Enter second number");
-
-        list.add(Integer.parseInt(sc.nextLine()));
-
-        System.out.println("Choose one");
-        System.out.println("add, min, mul, div");
-
-        String sign = sc.next();
-
-        switch (sign) {
-            case "add":
-                System.out.println("Result is " + add(list.get(0), list.get(1)));
+            if(value.equals("add")) {
+                System.out.println("Result is " + add(list));
                 break;
-            case "min":
-                System.out.println("Result is " + min(list.get(0), list.get(1)));
+            }else if(value.equals("min")) {
+                System.out.println("Result is " + min(list));
                 break;
-            case "mul":
-                System.out.println("Result is " + mul(list.get(0), list.get(1)));
+            }else if(value.equals("mul")) {
+                System.out.println("Result is " + mul(list));
                 break;
-            case "div":
-                if(list.get(1).equals(0)) {
-                    System.out.println("Result is " + 0);
-                }else {
-                    System.out.println("Result is " + div(list.get(0), list.get(1)));
-                }break;
+            }else if(value.equals("div")) {
+                System.out.println("Result is " + div(list));
+                break;
+            }else{
+                list.add(Integer.parseInt(value));
+                list.add(Integer.parseInt(value));
+            }
         }
-
         Calculate();
 
     }
 
-    public static int add(int a, int b) {
-        return a + b;
+    public static int add(List a) {
+        int result = 0;
+        for(int i = 0; i > a.size(); i++){
+            int enter = (int) a.get(i);
+            result += enter;
+        }
+        return result;
     }
 
-    public static int min(int a, int b) {
-        return a - b;
+    public static int min(List a) {
+        int result = 0;
+        for(int i = 0; i > a.size(); i++){
+            result -= i;
+        }
+        return result;
     }
 
-    public static int mul(int a, int b) {
-        return a * b;
+    public static int mul(List a) {
+        int result = 0;
+        for(int i = 0; i > a.size(); i++){
+            result *= i;
+        }
+        return result;
     }
 
-    public static int div(int a, int b) {
-        return a / b;
+    public static int div(List a) {
+        int result = 0;
+        for(int i = 0; i > a.size(); i++){
+            result /= i;
+        }
+        return result;
     }
 
 }
